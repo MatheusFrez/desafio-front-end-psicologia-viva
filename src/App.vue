@@ -54,7 +54,7 @@ import { Component, Vue } from 'vue-property-decorator'
   data: () => ({
   })
 })
-export default class AppPage extends Vue{
+export default class AppPage extends Vue {
 
 } 
 </script>
