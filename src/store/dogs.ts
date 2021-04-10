@@ -8,7 +8,7 @@ import { ImagesBreedResponse } from "../models/images-breed-response"
 import { SubBreedResponse } from "../models/sub-breed-reponse"
 
 @Module({
-  name: 'userStore',
+  name: 'dogsStore',
   dynamic: true,
   namespaced: true,
   store: store
@@ -52,10 +52,22 @@ export default class DogsStore extends VuexModule {
    * @returns 
    */
   @Action
-  async getImageByBreed(breed: string): Promise<RandomImageResponse> {
+  async getImageByBreed(breed: string): Promise<ImagesBreedResponse> {
     return (await httpService()
       .get(`/breed/${breed}/images`)).data
   }
+
+  /**
+   * Get all images from a sub breed.
+   * @param breed breed name
+   * @param subBreed subBreed name
+   * @returns 
+   */
+    @Action
+    async getImagesBySubBreed(params: { breed: string, subBreed: string }): Promise<ImagesBreedResponse> {
+      return (await httpService()
+        .get(`/breed/${params.breed}/${params.subBreed}/images`)).data
+    }
 
   /**
    * Returns an array of all the sub-breeds from a breed
