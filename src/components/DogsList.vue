@@ -8,6 +8,7 @@
                 <DogComponent 
                     :title="dogBreed" 
                     :image_src="dog_src"
+                    :favorites_dogs_on_store="favorites_dogs_on_store"
                 />
             </div>
         </div>
@@ -29,6 +30,8 @@ import { dogsStore } from '@/store/dogs'
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import SearchBreedComponent from './SearchBreed.vue'
 import DogComponent from './Dog.vue'
+import { FavoriteDog } from '@/models/favorite-dogs'
+import { favoritesDogsStore } from '@/store'
 
 @Component({
     data: () => ({
@@ -48,6 +51,11 @@ export default class DogsListComponent extends Vue {
     dogs: ImagesBreedResponse
     dogBreed: string = ''
     loading: boolean = true
+    favorites_dogs_on_store: Array<FavoriteDog> = []
+
+    mounted() {
+        this.favorites_dogs_on_store = favoritesDogsStore().favoritesDogs
+    }
 
     prepareBreedName(breedName: string) {
         return breedName.charAt(0).toUpperCase() + breedName.slice(1);
