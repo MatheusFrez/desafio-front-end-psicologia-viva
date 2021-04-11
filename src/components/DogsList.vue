@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dogs-list-container">
         <div>
             <SearchBreedComponent @load-dogs="loadDogs"/>
         </div>
@@ -81,6 +81,16 @@ export default class DogsListComponent extends Vue {
 </script>
 
 <style> 
+
+    .dogs-list-container {
+        margin-top: 8rem;
+    }
+
+    @media (min-width: 500px) {
+        .dogs-list-container {
+            margin-top: 0.5rem;
+        }
+    }
 
     .dogs-list {
         display: flex;

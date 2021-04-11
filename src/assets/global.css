@@ -51,8 +51,8 @@ a {
     color: inherit;
 }
 
-html, body {
-    min-height: 100%;
+html, body, main {
+    min-height: 100% !important;
 }
 
 .container {
