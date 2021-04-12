@@ -1,9 +1,7 @@
 <template>
-  <v-app>
-    <v-main>
-      <DogsList />
-    </v-main>
-  </v-app>
+  <v-main>
+    <DogsList />
+  </v-main>
 </template>
 
 <script lang="ts">

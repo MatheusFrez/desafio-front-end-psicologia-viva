@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <v-main>
     <FavoritesDogs />
-  </main>
+  </v-main>
 </template>
 
 <script lang="ts">
