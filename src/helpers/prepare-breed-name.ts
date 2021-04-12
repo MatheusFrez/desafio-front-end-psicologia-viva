@@ -1,0 +1,1 @@
+export const prepareBreedName = (breedName: string) => breedName.charAt(0).toUpperCase() + breedName.slice(1)
