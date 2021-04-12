@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+    <footer class="footer">
         <div>
             Feito com ❤️ e ☕ por <a href="https://github.com/MatheusFrez" target="_blank"><u>Matheus Frez</u></a>
         </div>

@@ -11,16 +11,8 @@
 }
 
 :root {
-    --white: #fff;
     --background: #F2F3F5;
-    --gray-line: #DCDDE0;
     --text: #666666;
-    --text-highlight: #B3B9FF;
-    --title: #2E384D;
-    --red: #E83F5B;
-    --green: #4CD62B;
-    --blue: #4583b6;
-    --blue-dark: #4572b6;
 }
 
 body {
@@ -59,8 +51,8 @@ a {
     color: inherit;
 }
 
-html, body {
-    min-height: 100%;
+html, body, main {
+    min-height: 100% !important;
 }
 
 .container {
