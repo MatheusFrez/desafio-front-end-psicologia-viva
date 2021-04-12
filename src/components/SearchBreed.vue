@@ -69,18 +69,19 @@ export default class SearchBreedComponent extends Vue {
     getDogsOrSubBreeds() {
         this.modelSubBreed = null
         const selectedBreed = this.items.find(breed => breed.breedName == this.model)
-        const stringSubBread = selectedBreed.completeSubBreeds
-        if(stringSubBread === "") {
+        const stringSubBreed = selectedBreed.completeSubBreeds
+        if(stringSubBreed === '') {
             this.subBreedsBySelectedBreed = []
             this.$emit('load-dogs', { breedValue: this.model, subBreedValue: this.modelSubBreed })
         }
         else 
-            this.subBreedsBySelectedBreed = stringSubBread.replace('Sub-raças: ', '').split(',')
+            this.subBreedsBySelectedBreed = stringSubBreed.replace('Sub-raças: ', '').split(',')
     }
 
     @Watch('modelSubBreed')
     getDogsBySubBreeds() {
-        this.$emit('load-dogs', { breedValue: this.model, subBreedValue: this.modelSubBreed })
+        if(this.modelSubBreed !== null)
+            this.$emit('load-dogs', { breedValue: this.model, subBreedValue: this.modelSubBreed })
     }
 
     async getAllBreeds(): Promise<void> {
