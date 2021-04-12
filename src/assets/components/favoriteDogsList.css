@@ -1,0 +1,94 @@
+.favorite-dogs-list {
+    display: flex;
+
+    margin: auto;
+    margin-top: 4rem;
+    max-width: 1000px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.no-favorite-dog-message {
+    margin-top: 7rem;
+}
+
+.loader {
+    width: 200px;
+    height: auto;
+}
+
+.dog {
+    margin: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+    .favorite-dogs-list {
+        display: flex;
+
+        margin: auto;
+        margin-top: 4rem;
+        max-width: 800px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 870px) {
+    .no-favorite-dog-message {
+        margin-top: 17rem;
+    }
+
+    .favorite-dogs-list {
+        display: flex;
+
+        margin: auto;
+        margin-top: 15rem;
+        max-width: 500px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 750px) {
+    .favorite-dogs-list {
+        display: flex;
+
+        margin: auto;
+        margin-top: 14rem;
+        max-width: 500px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 490px) and (min-width: 420px) {
+    .favorite-dogs-list {
+        display: flex;
+
+        margin: auto;
+        margin-top: 14rem;
+        max-width: 250px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .no-favorite-dog-message {
+        margin-top: 18rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .no-favorite-dog-message {
+        margin-top: 22rem;
+    }
+
+    .favorite-dogs-list {
+        display: flex;
+
+        margin: auto;
+        margin-top: 17rem;
+        max-width: 240px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

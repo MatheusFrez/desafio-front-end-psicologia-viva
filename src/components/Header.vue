@@ -23,7 +23,7 @@
         <v-icon
           right
           dark
-          color="brown"
+          color="black"
         >
           mdi-dog
         </v-icon>

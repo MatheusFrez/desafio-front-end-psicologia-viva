@@ -3,6 +3,21 @@
         <div>
             <SearchBreedComponent @load-dogs="loadDogs"/>
         </div>
+        <div v-if="dogs.message.length === 0 && !loading" class="no-filter-selected-message">
+            <h2 id="custom-header-text">
+                Selecione as raças/subraças para visualizar diversos tipos de cachorro. =)
+            </h2>
+            <div>
+                <v-img
+                    alt="Dog example"
+                    class="shrink mx-auto"
+                    contain
+                    src="../assets/logo.png"
+                    transition="scale-transition"
+                    width="300"
+                />
+            </div>
+        </div>
         <div class="dogs-list" v-if="!loading">
             <div v-for="dog_src in dogs.message" :key="dog_src" class="dog">
                 <DogComponent 
@@ -49,9 +64,9 @@ import { prepareBreedName } from '@/helpers/prepare-breed-name'
 })
 export default class DogsListComponent extends Vue {
 
-    dogs: ImagesBreedResponse
+    dogs: ImagesBreedResponse = { message: [], status: 'initial' }
     dogBreed: string = ''
-    loading: boolean = true
+    loading: boolean = false
     favorites_dogs_on_store: Array<FavoriteDog> = []
 
     mounted() {
@@ -77,79 +92,5 @@ export default class DogsListComponent extends Vue {
 }
 </script>
 
-<style> 
-
-    .dogs-list-container {
-        margin-top: 8rem;
-    }
-
-    @media(max-width: 870px) and (min-width: 500px) {
-        .dogs-list-container {
-            margin-top: 10rem;
-        }
-    }
-
-    @media (max-width: 420px) {
-        .dogs-list-container {
-            margin-top: 11rem;
-        }
-    }
-
-    @media (min-width: 870px) {
-        .dogs-list-container {
-            margin-top: 0rem;
-        }  
-    }
-
-    .dogs-list {
-        display: flex;
-
-        margin: auto;
-        max-width: 1000px;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .loader {
-        width: 200px;
-        height: auto;
-    }
-
-    .dog {
-        margin: 1.5rem;
-    }
-
-    @media (max-width: 1000px) {
-        .dogs-list {
-            display: flex;
-
-            margin: auto;
-            max-width: 800px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media (max-width: 750px) {
-        .dogs-list {
-            display: flex;
-
-            margin: auto;
-            max-width: 500px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media (max-width: 500px) {
-        .dogs-list {
-            display: flex;
-
-            margin: auto;
-            max-width: 250px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-   
+<style src="../assets/components/dogsList.css"> 
 </style>

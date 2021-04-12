@@ -1,5 +1,20 @@
 <template>
     <main>
+        <div v-if="dogs.length === 0 && !loading" class="no-favorite-dog-message">
+            <h2 id="custom-header-text">
+                Escolhe seus cachorros favoritos através da <a @click="goToHome">página inicial</a>. =)
+            </h2>
+            <div>
+                <v-img
+                    alt="Dog example"
+                    class="shrink mx-auto"
+                    contain
+                    src="../assets/logo.png"
+                    transition="scale-transition"
+                    width="300"
+                />
+            </div>
+        </div>
         <div class="favorite-dogs-list" v-if="!loading">
             <div v-for="dog in dogs" :key="dog._id" class="dog">
                 <DogComponent 
@@ -49,88 +64,12 @@ export default class FavoriteDogsListComponent extends Vue {
         this.loading = false
     }
 
+    goToHome() {
+        this.$router.push('/')
+    }
+
 }
 </script>
 
-<style> 
-
-    .favorite-dogs-list {
-        display: flex;
-
-        margin: auto;
-        margin-top: 4rem;
-        max-width: 1000px;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .loader {
-        width: 200px;
-        height: auto;
-    }
-
-    .dog {
-        margin: 1.5rem;
-    }
-
-    @media (max-width: 1000px) {
-        .favorite-dogs-list {
-            display: flex;
-
-            margin: auto;
-            margin-top: 4rem;
-            max-width: 800px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media (max-width: 870px) {
-        .favorite-dogs-list {
-            display: flex;
-
-            margin: auto;
-            margin-top: 15rem;
-            max-width: 500px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media (max-width: 750px) {
-        .favorite-dogs-list {
-            display: flex;
-
-            margin: auto;
-            margin-top: 14rem;
-            max-width: 500px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media (max-width: 490px) and (min-width: 420px) {
-        .favorite-dogs-list {
-            display: flex;
-
-            margin: auto;
-            margin-top: 14rem;
-            max-width: 250px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media (max-width: 420px) {
-        .favorite-dogs-list {
-            display: flex;
-
-            margin: auto;
-            margin-top: 17rem;
-            max-width: 240px;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-    }
-   
+<style src="../assets/components/favoriteDogsList.css"> 
 </style>

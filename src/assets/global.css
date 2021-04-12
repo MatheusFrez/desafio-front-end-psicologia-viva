@@ -42,7 +42,7 @@ body, input, textarea, button {
 }
 
 h2 {
-    font: 500 "Rajdhani", sans-serif;
+    font: 500 "Inter", sans-serif !important;
 }
 
 a {
