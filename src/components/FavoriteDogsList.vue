@@ -85,12 +85,24 @@ export default class FavoriteDogsListComponent extends Vue {
         }
     }
 
+    @media (max-width: 870px) {
+        .favorite-dogs-list {
+            display: flex;
+
+            margin: auto;
+            margin-top: 15rem;
+            max-width: 500px;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
     @media (max-width: 750px) {
         .favorite-dogs-list {
             display: flex;
 
             margin: auto;
-            margin-top: 4rem;
+            margin-top: 14rem;
             max-width: 500px;
             flex-direction: row;
             flex-wrap: wrap;
@@ -102,7 +114,7 @@ export default class FavoriteDogsListComponent extends Vue {
             display: flex;
 
             margin: auto;
-            margin-top: 10rem;
+            margin-top: 14rem;
             max-width: 250px;
             flex-direction: row;
             flex-wrap: wrap;
@@ -114,7 +126,7 @@ export default class FavoriteDogsListComponent extends Vue {
             display: flex;
 
             margin: auto;
-            margin-top: 14.5rem;
+            margin-top: 17rem;
             max-width: 240px;
             flex-direction: row;
             flex-wrap: wrap;

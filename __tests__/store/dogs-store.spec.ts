@@ -1,4 +1,4 @@
-import { dogsStore } from '../src/store/dogs'
+import { dogsStore } from '../../src/store/dogs'
 
 describe('Test dogs store module', () => {
     it('Should get random image from API.', async () => {

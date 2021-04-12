@@ -32,6 +32,7 @@ import SearchBreedComponent from './SearchBreed.vue'
 import DogComponent from './Dog.vue'
 import { FavoriteDog } from '@/models/favorite-dogs'
 import { favoritesDogsStore } from '@/store'
+import { prepareBreedName } from '@/helpers/prepare-breed-name'
 
 @Component({
     data: () => ({
@@ -57,20 +58,16 @@ export default class DogsListComponent extends Vue {
         this.favorites_dogs_on_store = favoritesDogsStore().favoritesDogs
     }
 
-    prepareBreedName(breedName: string) {
-        return breedName.charAt(0).toUpperCase() + breedName.slice(1);
-    }
-
     async loadDogs(params) {
         this.loading = true
         this.dogBreed = null
         if(!params?.subBreedValue) {
-            this.dogBreed = this.prepareBreedName(params?.breedValue)
+            this.dogBreed = prepareBreedName(params?.breedValue)
             await dogsStore.getImageByBreed(params.breedValue)
                 .then(res => this.dogs = res)
                 .finally(() => this.loading = false)
         } else {
-            this.dogBreed = this.prepareBreedName(params?.subBreedValue)
+            this.dogBreed = prepareBreedName(params?.subBreedValue)
             await dogsStore.getImagesBySubBreed({ breed: String(params?.breedValue).trim(), subBreed: String(params?.subBreedValue).trim() })
                 .then(res => this.dogs = res)
                 .finally(() => this.loading = false)
@@ -86,10 +83,22 @@ export default class DogsListComponent extends Vue {
         margin-top: 8rem;
     }
 
-    @media (min-width: 500px) {
+    @media(max-width: 870px) and (min-width: 500px) {
         .dogs-list-container {
-            margin-top: 0.5rem;
+            margin-top: 10rem;
         }
+    }
+
+    @media (max-width: 420px) {
+        .dogs-list-container {
+            margin-top: 11rem;
+        }
+    }
+
+    @media (min-width: 870px) {
+        .dogs-list-container {
+            margin-top: 0rem;
+        }  
     }
 
     .dogs-list {

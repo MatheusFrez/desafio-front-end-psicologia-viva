@@ -18,6 +18,16 @@
         <h2>Filtragem de cachorros de raça</h2>
       </div>
       <v-spacer></v-spacer>
+      <v-btn @click="goToBreedsAndSubBreedsPage" class="d-flex justify-end custom-button" outlined>
+        Raças/Sub-Raças
+        <v-icon
+          right
+          dark
+          color="brown"
+        >
+          mdi-dog
+        </v-icon>
+      </v-btn>
       <v-btn @click="goToFavoritesDogsPage" class="d-flex justify-end custom-button" outlined>
         Favoritos
         <v-icon
@@ -59,6 +69,10 @@ export default class HeaderComponent extends Vue {
     this.$router.push('/')
   }
 
+  goToBreedsAndSubBreedsPage() {
+    this.$router.push('/breeds')
+  }
+
 } 
 </script>
 
@@ -71,19 +85,26 @@ export default class HeaderComponent extends Vue {
     align-self: center;
   }
 
-  @media(min-width: 500px) {
-    .custom-button {
-      margin-right: 0.5rem;
+  @media(min-width: 500px) and (max-width: 850px){
+    .custom-container {
+      margin-top: 12rem;
     }
   }
 
-  @media(max-width: 420px) {
+  @media (min-width: 960px) {
+    .custom-button {
+      margin-right: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  @media(max-width: 870px) {
     .header {
       height: 14rem !important;
     }
 
     .custom-container {
-      margin-top: 6.5rem;
+      margin-top: 8rem;
     }
 
     .custom-button {
@@ -105,11 +126,37 @@ export default class HeaderComponent extends Vue {
 
   @media(max-width: 490px) and (min-width: 420px) {
     .header {
-      height: 10.5rem !important;
+      height: 14rem !important;
     }
 
     .custom-container {
-      margin-top: 5.0rem;
+      margin-top: 8.5rem;
+    }
+
+    .custom-button {
+      margin-top: 0.5rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .custom-button-home {
+      margin-top: 0.5rem !important;
+      width: 100%;
+      text-align: center;
+    }
+
+    .v-application .justify-end {
+      justify-content: center !important;
+    }
+  }
+
+   @media(max-width: 420px) {
+    .header {
+      height: 17rem !important;
+    }
+
+    .custom-container {
+      margin-top: 10rem;
     }
 
     .custom-button {

@@ -19,6 +19,14 @@ export const routes: Array<RouteConfig & { meta: { title: string, menu?: boolean
     meta: {
       title: 'Cachorros favoritos',
     }
+  },
+  {
+    path: '/breeds',
+    name: 'breeds',
+    component: () => import('@/views/BreedsSubBreeds.vue'),
+    meta: {
+      title: 'Raças e sub-raças',
+    }
   }
 ]
 
