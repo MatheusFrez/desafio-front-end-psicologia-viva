@@ -88,15 +88,4 @@ export default class BreedsSubBreedsPage extends Vue {
         margin-left: 2rem;
     }
 
-    @media(max-width: 870px) and (min-width: 420px) {
-        .breeds-sub-breeds {
-            margin-top: 14rem;
-        }
-    }
-
-    @media (max-width: 420px) {
-       .breeds-sub-breeds {
-            margin-top: 17rem;
-        } 
-    }
 </style>

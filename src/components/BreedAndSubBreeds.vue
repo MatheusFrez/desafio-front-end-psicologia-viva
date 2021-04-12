@@ -39,6 +39,3 @@ export default class BreedAndSubBreeds extends Vue {
     } 
 }
 </script>
-
-<style> 
-</style>

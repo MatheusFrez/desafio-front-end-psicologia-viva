@@ -1,29 +1,11 @@
 .dogs-list-container {
-    margin-top: 8rem;
+    margin-top: 0.5rem;
 }
 
 #custom-header-text {
     text-align: center;
     font-size: 1.5rem;
     margin-top: 1rem;
-}
-
-@media(max-width: 870px) and (min-width: 500px) {
-    .dogs-list-container {
-        margin-top: 10rem;
-    }
-}
-
-@media (max-width: 420px) {
-    .dogs-list-container {
-        margin-top: 11rem;
-    }
-}
-
-@media (min-width: 870px) {
-    .dogs-list-container {
-        margin-top: 0rem;
-    }  
 }
 
 .dogs-list {

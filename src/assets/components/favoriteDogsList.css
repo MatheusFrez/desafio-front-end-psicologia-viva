@@ -9,7 +9,7 @@
 }
 
 .no-favorite-dog-message {
-    margin-top: 7rem;
+    margin-top: 5rem;
 }
 
 .loader {
@@ -34,15 +34,10 @@
 }
 
 @media (max-width: 870px) {
-    .no-favorite-dog-message {
-        margin-top: 17rem;
-    }
-
     .favorite-dogs-list {
         display: flex;
 
         margin: auto;
-        margin-top: 15rem;
         max-width: 500px;
         flex-direction: row;
         flex-wrap: wrap;
@@ -54,7 +49,6 @@
         display: flex;
 
         margin: auto;
-        margin-top: 14rem;
         max-width: 500px;
         flex-direction: row;
         flex-wrap: wrap;
@@ -66,27 +60,17 @@
         display: flex;
 
         margin: auto;
-        margin-top: 14rem;
         max-width: 250px;
         flex-direction: row;
         flex-wrap: wrap;
     }
-
-    .no-favorite-dog-message {
-        margin-top: 18rem;
-    }
 }
 
 @media (max-width: 420px) {
-    .no-favorite-dog-message {
-        margin-top: 22rem;
-    }
-
     .favorite-dogs-list {
         display: flex;
 
         margin: auto;
-        margin-top: 17rem;
         max-width: 240px;
         flex-direction: row;
         flex-wrap: wrap;

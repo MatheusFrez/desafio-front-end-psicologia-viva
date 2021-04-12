@@ -5,7 +5,7 @@
     dark
     class="header"
   >
-    <v-layout row wrap class="d-flex align-center custom-container">
+    <v-layout row wrap class="d-flex align-center custom-container" v-if="!isMobileOrTablet">
       <div class="flex">
         <v-img
           alt="Dog example"
@@ -49,6 +49,76 @@
         </v-icon>
       </v-btn>
     </v-layout>
+    <v-app-bar color="primary" dark fixed app v-if="isMobileOrTablet">
+      <v-toolbar-title class="flex">
+        <v-img
+          alt="Dog example"
+          class="shrink mr-2"
+          contain
+          src="../assets/logo.png"
+          transition="scale-transition"
+          width="50"
+        />
+        <h2>Filtragem de cachorros de raça</h2>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+          
+      </v-toolbar-items>
+
+      <v-menu class="hidden-md-and-up">
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item>
+            <v-list-item-title>
+              <v-btn @click="goToBreedsAndSubBreedsPage" class="d-flex justify-center custom-button-mobile" outlined>
+                Raças/Sub-Raças
+                <v-icon
+                  right
+                  dark
+                  color="black"
+                >
+                  mdi-dog
+                </v-icon>
+              </v-btn>
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>
+              <v-btn @click="goToFavoritesDogsPage" class="d-flex justify-center custom-button-mobile" outlined>
+                Favoritos
+                <v-icon
+                  right
+                  dark
+                  color="orange"
+                >
+                  mdi-star
+                </v-icon>
+              </v-btn>
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>
+              <v-btn @click="goToHomePage" class="d-flex justify-center custom-button-mobile" outlined>
+                home
+                <v-icon
+                  right
+                  dark
+                  color="black"
+                >
+                  mdi-home
+                </v-icon>
+              </v-btn>
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
   </v-app-bar>
 </template>
 
@@ -73,6 +143,10 @@ export default class HeaderComponent extends Vue {
     this.$router.push('/breeds')
   }
 
+  get isMobileOrTablet() {
+    return this.$vuetify.breakpoint.mobile;
+  }
+
 } 
 </script>
 
@@ -85,94 +159,14 @@ export default class HeaderComponent extends Vue {
     align-self: center;
   }
 
-  @media(min-width: 500px) and (max-width: 850px){
-    .custom-container {
-      margin-top: 12rem;
-    }
+  .custom-button-mobile{
+    width: 100%;
+    text-align: center;
   }
 
-  @media (min-width: 960px) {
-    .custom-button {
-      margin-right: 0.5rem;
-      text-align: center;
-    }
+  .custom-button {
+    margin-right: 0.5rem;
+    text-align: center;
   }
 
-  @media(max-width: 870px) {
-    .header {
-      height: 14rem !important;
-    }
-
-    .custom-container {
-      margin-top: 8rem;
-    }
-
-    .custom-button {
-      margin-top: 0.5rem;
-      width: 100%;
-      text-align: center;
-    }
-
-    .custom-button-home {
-      margin-top: 0.5rem !important;
-      width: 100%;
-      text-align: center;
-    }
-
-    .v-application .justify-end {
-      justify-content: center !important;
-    }
-  }
-
-  @media(max-width: 490px) and (min-width: 420px) {
-    .header {
-      height: 14rem !important;
-    }
-
-    .custom-container {
-      margin-top: 8.5rem;
-    }
-
-    .custom-button {
-      margin-top: 0.5rem;
-      width: 100%;
-      text-align: center;
-    }
-
-    .custom-button-home {
-      margin-top: 0.5rem !important;
-      width: 100%;
-      text-align: center;
-    }
-
-    .v-application .justify-end {
-      justify-content: center !important;
-    }
-  }
-
-   @media(max-width: 420px) {
-    .header {
-      height: 17rem !important;
-    }
-
-    .custom-container {
-      margin-top: 10rem;
-    }
-
-    .custom-button {
-      margin-top: 0.5rem;
-      width: 100%;
-      text-align: center;
-    }
-
-    .custom-button-home {
-      margin-top: 0.5rem !important;
-      width: 100%;
-      text-align: center;
-    }
-
-    .v-application .justify-end {
-      justify-content: center !important;
-    }
-  }
 </style>
