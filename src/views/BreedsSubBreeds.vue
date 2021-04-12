@@ -1,22 +1,7 @@
 <template>
   <v-container class="breeds-sub-breeds">
     <div v-if="!loading">
-        <h2 id="title">Raças e sub-raças de cachorros.</h2>
-        <v-expansion-panels>
-            <v-expansion-panel
-                v-for="(breed,i) in allBreeds"
-                :key="i"
-            >
-                <v-expansion-panel-header>
-                    {{breed.name}}
-                </v-expansion-panel-header>
-                <v-expansion-panel-content>
-                    <div class="sub-breeds">
-                        {{getSubBreedsDescription(breed.subBreeds)}}
-                    </div>
-                </v-expansion-panel-content>
-            </v-expansion-panel>
-        </v-expansion-panels>
+        <BreedAndSubBreeds :all_breeds="allBreeds" />
     </div>
     <div v-else>
         <div v-for="n in 8" :key="n">
@@ -32,18 +17,16 @@
 <script lang="ts">
 import { dogsStore } from '@/store/dogs'
 import { Component, Vue } from 'vue-property-decorator'
+import BreedAndSubBreeds from '@/components/BreedAndSubBreeds.vue'
 import { prepareBreedName } from '@/helpers/prepare-breed-name'
-
-declare interface BreedDetails {
-    name: string
-    subBreeds: Array<string>
-}
+import { BreedDetails } from '@/models/breed-sub-breed'
 
 @Component({
-  components: {
-  },
-  data: () => ({
-  })
+    components: {
+        BreedAndSubBreeds
+    },
+    data: () => ({
+    })
 })
 export default class BreedsSubBreedsPage extends Vue {
 
@@ -64,15 +47,6 @@ export default class BreedsSubBreedsPage extends Vue {
             })
             .finally(() => this.loading = false)
     }
-
-    getSubBreedsDescription(subBreeds: Array<string>): string {
-        let subBreedsString: string = 'Sub-raças: '
-        if(subBreeds.length > 0)
-            subBreedsString += subBreeds.join(', ') + '.'
-        else subBreedsString = 'Essa raça não possui sub-raças.'
-        return subBreedsString
-    } 
-
 } 
 </script>
 
