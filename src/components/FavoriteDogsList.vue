@@ -62,7 +62,6 @@ export default class FavoriteDogsListComponent extends Vue {
         max-width: 1000px;
         flex-direction: row;
         flex-wrap: wrap;
-        min-height: 80vh;
     }
 
     .loader {

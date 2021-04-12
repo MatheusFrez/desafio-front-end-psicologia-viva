@@ -71,7 +71,7 @@ export default class DogsListComponent extends Vue {
                 .finally(() => this.loading = false)
         } else {
             this.dogBreed = this.prepareBreedName(params?.subBreedValue)
-            await dogsStore.getImagesBySubBreed({ breed: params?.breedValue, subBreed: params?.subBreedValue})
+            await dogsStore.getImagesBySubBreed({ breed: String(params?.breedValue).trim(), subBreed: String(params?.subBreedValue).trim() })
                 .then(res => this.dogs = res)
                 .finally(() => this.loading = false)
         }

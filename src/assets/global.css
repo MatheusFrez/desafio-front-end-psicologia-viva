@@ -7,7 +7,6 @@
 #app {
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 :root {
@@ -49,10 +48,6 @@ h2 {
 a {
     text-decoration: none;
     color: inherit;
-}
-
-html, body, main {
-    min-height: 100% !important;
 }
 
 .container {
