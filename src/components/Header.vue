@@ -9,11 +9,12 @@
       <div class="flex">
         <v-img
           alt="Dog example"
-          class="shrink mr-2"
+          class="shrink mr-2 pointer"
           contain
           src="../assets/logo.png"
           transition="scale-transition"
           width="50"
+          @click="goToHomePage"
         />
         <h2>Filtragem de cachorros de raça</h2>
       </div>
@@ -39,7 +40,7 @@
         </v-icon>
       </v-btn>
       <v-btn @click="goToHomePage" class="d-flex justify-end custom-button-home" outlined>
-        home
+        Página inicial
         <v-icon
           right
           dark
@@ -167,6 +168,10 @@ export default class HeaderComponent extends Vue {
   .custom-button {
     margin-right: 0.5rem;
     text-align: center;
+  }
+
+  .pointer:hover {
+    cursor: pointer;
   }
 
 </style>
