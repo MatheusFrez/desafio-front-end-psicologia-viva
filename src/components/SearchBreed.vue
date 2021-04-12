@@ -1,7 +1,7 @@
 <template>
     <v-container class="flex">
         <v-autocomplete
-            v-model="model"
+            v-model="modelBreed"
             :items="items"
             :loading="isLoading"
             :search-input.sync="search"
@@ -54,7 +54,7 @@ declare interface CompleteBreedList {
 })
 export default class SearchBreedComponent extends Vue {
     isLoading: boolean = false
-    model: any = null
+    modelBreed: any = null
     modelSubBreed: any = null
     search: string = null
     descriptionLimit: number = 60
@@ -65,14 +65,14 @@ export default class SearchBreedComponent extends Vue {
         await this.getAllBreeds()
     }
 
-    @Watch('model')
+    @Watch('modelBreed')
     getDogsOrSubBreeds() {
         this.modelSubBreed = null
-        const selectedBreed = this.items.find(breed => breed.breedName == this.model)
+        const selectedBreed = this.items.find(breed => breed.breedName == this.modelBreed)
         const stringSubBreed = selectedBreed.completeSubBreeds
         if(stringSubBreed === '') {
             this.subBreedsBySelectedBreed = []
-            this.$emit('load-dogs', { breedValue: this.model, subBreedValue: this.modelSubBreed })
+            this.$emit('load-dogs', { breedValue: this.modelBreed, subBreedValue: this.modelSubBreed })
         }
         else 
             this.subBreedsBySelectedBreed = stringSubBreed.replace('Sub-raças: ', '').split(',')
@@ -81,7 +81,7 @@ export default class SearchBreedComponent extends Vue {
     @Watch('modelSubBreed')
     getDogsBySubBreeds() {
         if(this.modelSubBreed !== null)
-            this.$emit('load-dogs', { breedValue: this.model, subBreedValue: this.modelSubBreed })
+            this.$emit('load-dogs', { breedValue: this.modelBreed, subBreedValue: this.modelSubBreed })
     }
 
     async getAllBreeds(): Promise<void> {

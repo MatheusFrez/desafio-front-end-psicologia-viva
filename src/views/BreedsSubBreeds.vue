@@ -34,6 +34,10 @@ export default class BreedsSubBreedsPage extends Vue {
     loading: boolean = true
 
     mounted() {
+        this.getAllBreeds()
+    }
+
+    getAllBreeds() {
         dogsStore.getAllBreeds()
             .then(res => {
                 const breeds = res.message
